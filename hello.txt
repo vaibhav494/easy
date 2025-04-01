@@ -499,3 +499,69 @@ for i in range(2,len(query),2):
     else:
         bit |= files[index]
 print(bit)
+
+
+
+
+
+
+
+
+
+
+#stopword + ngram
+import nltk
+from nltk.corpus import stopwords
+
+nltk.download('stopwords')
+sentence = 'Mithibai is the best College'.lower().split()
+new = []
+stops = set(stopwords.words('english'))
+for i in sentence:
+    if i not in stops:
+        new.append(i)
+n=3
+result = []
+#for letters
+for i in new:
+    for j in range(len(i)-n+1):
+        result.append(i[j:j+n])
+print(result)
+
+#for words
+res = []
+for i in range(len(new)-n+1):
+    res.append(new[i:i+n])
+print(res)
+
+
+
+
+
+
+
+
+
+
+
+#porterStemmer + ngram
+from nltk.stem import PorterStemmer
+
+sentence = 'Mithibai is the best College'.lower().split()
+stemmer = PorterStemmer()
+new = []
+for i in sentence:
+    new.append(stemmer.stem(i))
+n=3
+result = []
+#for letters
+for i in new:
+    for j in range(len(i)-n+1):
+        result.append(i[j:j+n])
+print(result)
+
+#for words
+res = []
+for i in range(len(new)-n+1):
+    res.append(new[i:i+n])
+print(res)
