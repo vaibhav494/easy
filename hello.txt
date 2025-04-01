@@ -451,3 +451,51 @@ print("\nCosine Similarity Between Documents:")
 print(f"Similarity (doc1, doc2): {cosine_12}")
 print(f"Similarity (doc1, doc3): {cosine_13}")
 print(f"Similarity (doc2, doc3): {cosine_23}")
+
+
+
+
+
+
+
+
+
+
+
+
+#incident matrix
+file1 = []
+file2 = []
+file3 = []
+files = [file1, file2, file3]
+
+sets = set()
+for i in range(len(files)):
+    with open('file' + str(i+1) + '.txt', 'r') as f:
+        f = f.read().split()
+        for i1 in f:
+            sets.add(i1)
+
+#converting for iterating
+sets  = list(sets)
+iter = 1
+for i in files:
+    with open('file' + str(iter) + '.txt', 'r') as f:
+        f = f.read().split()
+        for i1 in sets:
+            if i1 in f:i.append(1)
+            else:i.append(0)
+    iter +=1 
+import numpy as np
+files = np.transpose(files)
+print(files)
+
+query = 'Vaibhav & name | hello'.split()
+bit = files[sets.index(query[0])]
+for i in range(2,len(query),2):
+    index = sets.index(query[i])
+    if query[i-1] == '&':
+        bit &= files[index]
+    else:
+        bit |= files[index]
+print(bit)
