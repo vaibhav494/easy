@@ -218,7 +218,7 @@ crawl(root)
 
 
 #knn, collaberative filtering
-pip install scikit-learn
+#pip install scikit-learn
 from sklearn.neighbors import NearestNeighbors
 import numpy as np
 num_users = 15
