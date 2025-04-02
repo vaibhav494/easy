@@ -490,7 +490,7 @@ import numpy as np
 files = np.transpose(files)
 print(files)
 
-query = 'Vaibhav & name | hello'.split()
+query = 'crazy & name | hello'.split()
 bit = files[sets.index(query[0])]
 for i in range(2,len(query),2):
     index = sets.index(query[i])
